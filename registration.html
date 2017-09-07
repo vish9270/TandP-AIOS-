@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Registration Page|Training and Placement</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+	
+    <style type="text/css">
+	
+        .wizard {
+    margin: 20px auto;
+    background: #fff;
+}
+
+    .wizard .nav-tabs {
+        position: relative;
+        margin: 40px auto;
+        margin-bottom: 0;
+        border-bottom-color: #e0e0e0;
+    }
+
+    .wizard > div.wizard-inner {
+        position: relative;
+    }
+
+.connecting-line {
+    height: 2px;
+    background: #e0e0e0;
+    position: absolute;
+    width: 80%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    z-index: 1;
+}
+
+.wizard .nav-tabs > li.active > a, .wizard .nav-tabs > li.active > a:hover, .wizard .nav-tabs > li.active > a:focus {
+    color: #555555;
+    cursor: default;
+    border: 0;
+    border-bottom-color: transparent;
+}
+
+span.round-tab {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    display: inline-block;
+    border-radius: 100px;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    font-size: 25px;
+}
+span.round-tab i{
+    color:#555555;
+}
+.wizard li.active span.round-tab {
+    background: #fff;
+    border: 2px solid #5bc0de;
+    
+}
+.wizard li.active span.round-tab i{
+    color: #5bc0de;
+}
+
+span.round-tab:hover {
+    color: #333;
+    border: 2px solid #333;
+}
+
+.wizard .nav-tabs > li {
+    width: 25%;
+}
+
+.wizard li:after {
+    content: " ";
+    position: absolute;
+    left: 46%;
+    opacity: 0;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 5px solid transparent;
+    border-bottom-color: #5bc0de;
+    transition: 0.1s ease-in-out;
+}
+
+.wizard li.active:after {
+    content: " ";
+    position: absolute;
+    left: 46%;
+    opacity: 1;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 10px solid transparent;
+    border-bottom-color: #5bc0de;
+}
+
+.wizard .nav-tabs > li a {
+    width: 70px;
+    height: 70px;
+    margin: 20px auto;
+    border-radius: 100%;
+    padding: 0;
+}
+
+    .wizard .nav-tabs > li a:hover {
+        background: transparent;
+    }
+
+.wizard .tab-pane {
+    position: relative;
+    padding-top: 50px;
+}
+
+.wizard h3 {
+    margin-top: 0;
+}
+.step1 .row {
+    margin-bottom:10px;
+}
+.step_21 {
+    border :1px solid #eee;
+    border-radius:5px;
+    padding:10px;
+}
+.step33 {
+    border:1px solid #ccc;
+    border-radius:5px;
+    padding-left:10px;
+    margin-bottom:10px;
+}
+.dropselectsec {
+    width: 68%;
+    padding: 6px 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #333;
+    margin-left: 10px;
+    outline: none;
+    font-weight: normal;
+}
+.dropselectsec1 {
+    width: 74%;
+    padding: 6px 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #333;
+    margin-left: 10px;
+    outline: none;
+    font-weight: normal;
+}
+.mar_ned {
+    margin-bottom:10px;
+}
+.wdth {
+    width:25%;
+}
+.birthdrop {
+    padding: 6px 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #333;
+    margin-left: 10px;
+    width: 16%;
+    outline: 0;
+    font-weight: normal;
+}
+
+
+/* according menu */
+#accordion-container {
+    font-size:13px
+}
+.accordion-header {
+    font-size:13px;
+	background:#ebebeb;
+	margin:5px 0 0;
+	padding:7px 20px;
+	cursor:pointer;
+	color:#fff;
+	font-weight:400;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px
+}
+.unselect_img{
+	width:18px;
+	-webkit-user-select: none;  
+	-moz-user-select: none;     
+	-ms-user-select: none;      
+	user-select: none; 
+}
+.active-header {
+	-moz-border-radius:5px 5px 0 0;
+	-webkit-border-radius:5px 5px 0 0;
+	border-radius:5px 5px 0 0;
+	background:#F53B27;
+}
+.active-header:after {
+	content:"\f068";
+	font-family:'FontAwesome';
+	float:right;
+	margin:5px;
+	font-weight:400
+}
+.inactive-header {
+	background:#333;
+}
+.inactive-header:after {
+	content:"\f067";
+	font-family:'FontAwesome';
+	float:right;
+	margin:4px 5px;
+	font-weight:400
+}
+.accordion-content {
+	display:none;
+	padding:20px;
+	background:#fff;
+	border:1px solid #ccc;
+	border-top:0;
+	-moz-border-radius:0 0 5px 5px;
+	-webkit-border-radius:0 0 5px 5px;
+	border-radius:0 0 5px 5px
+}
+.accordion-content a{
+	text-decoration:none;
+	color:#333;
+}
+.accordion-content td{
+	border-bottom:1px solid #dcdcdc;
+}
+
+
+
+@media( max-width : 585px ) {
+
+    .wizard {
+        width: 90%;
+        height: auto !important;
+    }
+
+    span.round-tab {
+        font-size: 16px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .wizard .nav-tabs > li a {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .wizard li.active:after {
+        content: " ";
+        position: absolute;
+        left: 35%;
+    }
+}
+    </style>
+    
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+	
+	<script>
+	function EnableGapTextBox()
+	{	
+	   if (document.myform.isgap.value == "yes")
+	   {
+		  document.myform.gapreason.disabled=false;
+	   } 
+	   else 
+	   {
+		  document.myform.gapreason.disabled=true;
+	   }
+	}
+	function EnableRelativeInCompanyTextBox()
+	{	
+	   if (document.myform.relativeincompany.value == "yes")
+	   {
+		  document.myform.ifyesrelative.disabled=false;
+	   } 
+	   else 
+	   {
+		  document.myform.ifyesrelative.disabled=true;
+	   }
+	}
+	</script>
+	
+	
+	
+	
+	
+</head>
+<body>
+
+<form name="myform">
+
+
+<div class="container">
+    <div class="row">
+    	<section>
+        <div class="wizard">
+            <div class="wizard-inner">
+                <div class="connecting-line"></div>
+                <ul class="nav nav-tabs" role="tablist">
+
+                    <li role="presentation" class="active">
+                        <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-folder-open"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li role="presentation" class="disabled">
+                        <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="presentation" class="disabled">
+                        <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-picture"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li role="presentation" class="disabled">
+                        <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-ok"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <form role="form">
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel" id="step1">
+                        <div class="step1">
+                            <div class="step33">
+								<h5><strong>Basic Details</strong></h5>
+								<hr>
+                             <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>First Name</stong></p>
+                                </div>
+								<div class="col-md-8 col-xs-9">
+                                    <input type="text" name="fname" id="fname" placeholder="First Name" class="dropselectsec" autocomplete="off" required="">
+                                </div>
+							 </div>
+							 <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Middle Name</stong></p>
+                                </div>
+                                <div class="col-md-8 col-xs-9">
+                                    <input type="text" name="mname" id="mname" placeholder="Middle Name" class="dropselectsec" autocomplete="off">
+                                </div>
+                             </div>
+							 <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Last Name</stong></p>
+                                </div>
+                                <div class="col-md-8 col-xs-9">
+                                    <input type="text" name="lname" id="lname" placeholder="Last Name" class="dropselectsec" autocomplete="off">
+                                </div>
+                             </div>
+							
+							
+							
+                             <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Date of Birth</stong></p>
+                                </div>
+                                <div class="col-md-8 col-xs-9">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-4 wdth">
+                                            <select name="visa_status" id="visa_status" class="dropselectsec1">
+                                                <option value="">Date</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+												<option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+												<option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="23">23</option>
+                                                <option value="24">24</option>
+                                                <option value="25">25</option>
+                                                <option value="26">26</option>
+                                                <option value="27">27</option>
+												<option value="28">28</option>
+                                                <option value="29">29</option>
+												<option value="30">30</option>
+                                                <option value="31">31</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 col-xs-4 wdth">
+                                            <select name="visa_status" id="visa_status" class="dropselectsec1">
+                                                <option value="">Month</option>
+                                                <option value="1">Jan</option>
+                                                <option value="2">Feb</option>
+                                                <option value="3">Mar</option>
+                                                <option value="4">Apr</option>
+                                                <option value="5">May</option>
+                                                <option value="6">June</option>
+                                                <option value="7">July</option>
+                                                <option value="8">Aug</option>
+                                                <option value="9">Sept</option>
+												<option value="10">Oct</option>
+												<option value="11">Nov</option>
+												<option value="12">Dec</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 col-xs-4 wdth">
+                                            <select name="visa_status" id="visa_status" class="dropselectsec1">
+                                                <option value="">Year</option>
+                                                <option value="90">1990</option>
+                                                <option value="91">1991</option>
+                                                <option value="92">1992</option>
+                                                <option value="93">1993</option>
+                                                <option value="94">1994</option>
+                                                <option value="95">1995</option>
+                                                <option value="96">1996</option>
+                                                <option value="97">1997</option>
+                                                <option value="98">1998</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Gender</stong></p>
+                                </div>
+                                <div class="col-md-8 col-xs-9">
+                                    <label class="radio-inline">
+                                      <input type="radio" name="gender" id="male" value="male"> Male
+                                    </label>
+                                    <label class="radio-inline">
+                                      <input type="radio" name="gender" id="female" value="female"> Female
+                                    </label>
+                                </div>
+                             </div>
+                            
+                             <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Address</stong></p>
+                                </div>
+                                <div class="col-md-8 col-xs-9">
+                                   <textarea name="addr" id="addr" placeholder="Address" class="dropselectsec" autocomplete="off"></textarea>
+                                </div>
+                             </div>
+							 <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>E-Mail</stong></p>
+                                </div>
+                                <div class="col-md-8 col-xs-9">
+                                    <input type="email" name="email" id="email" placeholder="Someone@something.com" class="dropselectsec" autocomplete="off">
+                                </div>
+                             </div>
+							 <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Mobile No. (Student)</stong></p>
+                                </div>
+								<div class="col-md-8 col-xs-9">
+								<div class="row">
+                                <div class="col-sm-4 col-xs-9">
+                                    <input type="phone" name="smobno1" id="smobno1" placeholder="Mobile No." class="dropselectsec" autocomplete="off">
+                                </div>
+								 <div class="col-sm-6 col-xs-9">
+                                    <input type="phone" name="smobno2" id="smobno2" placeholder="Mobile No." class="dropselectsec" autocomplete="off">
+                                </div>
+								</div>
+								</div>
+                             </div>
+							 <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Mobile No. (Parent)</stong></p>
+                                </div>
+								<div class="col-md-8 col-xs-9">
+								<div class="row">
+                                <div class="col-sm-4 col-xs-9">
+                                    <input type="phone" name="pmobno" id="pmobno" placeholder="Mobile No." class="dropselectsec" autocomplete="off">
+                                </div>
+								</div>
+								</div>
+                             </div>
+							  <div class="row mar_ned">
+						     </div>
+						  </div>
+						  </div>
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-primary next-step" onclick="return Validate();">Save and continue</button></li>
+                        </ul>
+                    </div>
+					
+					
+					
+					
+					
+					
+					
+					
+                    <div class="tab-pane" role="tabpanel" id="step2">
+                        <div class="step2">
+						
+						<div class="step33">
+								<h5><strong>Tell Us More </strong></h5>
+								<hr>
+                             <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Enrollment Number</stong></p>
+                                </div>
+								<div class="col-md-8 col-xs-9">
+                                    <input type="text" name="enrollno" id="enrollno" placeholder="Enrollment Number" class="dropselectsec" autocomplete="off">
+                                </div>
+							 </div>
+							 <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Branch</stong></p>
+                                </div>
+                                <div class="col-md-8 col-xs-9">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-4 wdth">
+                                            <select name="branch" id="branch" class="dropselectsec1">
+                                                <option value="">Branch</option>
+                                                <option value="ctech">Computer Technology</option>
+                                                <option value="it">Information Technology</option>
+                                                <option value="mech">Mechanical Engineering</option>
+                                                <option value="civil">Civil Engineering</option>
+                                                <option value="et">Electronics Engineering</option>
+                                                <option value="etc">Electronics And Telecommunication</option>
+                                                <option value="el">Electrical Engineering</option>
+                                                
+                                            </select>
+                                        </div>
+                                       </div>
+                                </div>
+                             </div>
+							 
+
+							<div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Section</stong></p>
+                                </div>
+                                <div class="col-md-8 col-xs-9">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-4 wdth">
+                                            <select name="section" id="section" class="dropselectsec1">
+                                                <option value="">Section</option>
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                                <option value="C">C</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+							  <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Category</stong></p>
+                                </div>
+								<div class="col-md-4 col-xs-9">
+                                    <input type="text" name="category" id="category" placeholder="Category" class="dropselectsec" autocomplete="off">
+                                </div>
+							 </div>
+							 
+							  
+						  </div>
+							 
+							 <br><br>
+							 
+						<div class="step33">
+								<h5><strong>Entrance Exam </strong></h5>
+								<hr>
+								
+								 <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>CET*</stong></p>
+                                </div>
+                                <div class="col-md-8 col-xs-9">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-4 wdth">
+                                            <input type="text" name="cetobtained" id="cetobtained" placeholder="Obtained Marks" class="dropselectsec" autocomplete="off">
+                                        </div>
+                                        <div class="col-md-4 col-xs-4 wdth">
+                                           <input type="text" name="cettotal" id="cettotal" placeholder="Out Of" class="dropselectsec" autocomplete="off">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+							
+							
+							<div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>JEE Mains*</stong></p>
+                                </div>
+                                <div class="col-md-8 col-xs-9">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-4 wdth">
+                                            <input type="text" name="cetobtained" id="jeeobtained" placeholder="Obtained Marks" class="dropselectsec" autocomplete="off">
+                                        </div>
+                                        <div class="col-md-4 col-xs-4 wdth">
+                                           <input type="text" name="cettotal" id="jeetotal" placeholder="Out Of" class="dropselectsec" autocomplete="off">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+								
+								<br>
+								
+								
+                         </div>
+									 
+							<br><br>
+							
+						<div class="step33">
+								<h5><strong>Academic Information</strong></h5>
+								<hr>
+                                  
+                                    
+					<table class="table">
+						<thead>
+							<tr>
+								
+								<th>Exam</th>
+								<th>Year Of Passing</th>
+								<th>Board/State</th>
+								<th>Marks Obtained</th>
+								<th>Marks OutOff</th>
+								<th>Percentange(upto 2 deicmals)</th>
+								<th>No. Of attemepts</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								
+								<td>SSC
+                                </td>
+								<td> <div class="form-group">
+                                        <select type="yop" placeholder="Year Of Passing" class="form-control">
+                                          <option value="2011">2011</option>
+                                          <option value="2012">2012</option>
+                                          <option value="2013">2013</option>
+										  <option value="2014">2014</option>
+                                        </select>
+                                      </div>
+                                </td>
+                                <td>
+                                 <input type="text" name="board" placeholder="Board/State" class="form-control">
+                                </td>
+                                <td>
+                                 <input type="text" name="ssctotal" placeholder="Total Marks" class="form-control">
+                                </td>
+								<td> 
+                                 <input type="text" name="sscobtained" placeholder="Obtained Marks" class="form-control">
+                                </td>
+                                <td><div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Percentage" aria-describedby="basic-addon2">
+                                  <span class="input-group-addon" id="basic-addon2">%</span>
+                                </div>
+                                </td>
+                                <td> 
+                                     <input type="text" name="attempt" placeholder="Attempts" class="form-control">
+                                </td>
+                            </tr>
+							<tr>
+								
+								<td>HSSC</td>
+								<td> <div class="form-group">
+                                        <select type="yop" placeholder="Year Of Passing" class="form-control">
+                                          <option value="2011">2011</option>
+                                          <option value="2012">2012</option>
+                                          <option value="2013">2013</option>
+										  <option value="2014">2014</option>
+                                        </select>
+                                      </div>
+                                </td>
+                                <td>
+                                 <input type="text" name="board" placeholder="Board/State" class="form-control">
+                                </td>
+                                <td>
+                                 <input type="text" name="ssctotal" placeholder="Total Marks" class="form-control">
+                                </td>
+								<td> 
+                                 <input type="text" name="sscobtained" placeholder="Obtained Marks" class="form-control">
+                                </td>
+                                <td><div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Percentage" aria-describedby="basic-addon2">
+                                  <span class="input-group-addon" id="basic-addon2">%</span>
+                                </div>
+                                </td>
+                                <td> 
+                                     <input type="text" name="attempt" placeholder="Attempts" class="form-control">
+                                </td>
+                            </tr>
+							<tr>
+								
+								<td>Diploma</td>
+								<td> <div class="form-group">
+                                        <select type="yop" placeholder="Year Of Passing" class="form-control">
+                                          <option value="2011">2011</option>
+                                          <option value="2012">2012</option>
+                                          <option value="2013">2013</option>
+										  <option value="2014">2014</option>
+                                        </select>
+                                      </div>
+                                </td>
+                                <td>
+                                 <input type="text" name="board" placeholder="Board/State" class="form-control">
+                                </td>
+                                <td>
+                                 <input type="text" name="ssctotal" placeholder="Total Marks" class="form-control">
+                                </td>
+								<td> 
+                                 <input type="text" name="sscobtained" placeholder="Obtained Marks" class="form-control">
+                                </td>
+                                <td><div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Percentage" aria-describedby="basic-addon2">
+                                  <span class="input-group-addon" id="basic-addon2">%</span>
+                                </div>
+                                </td>
+                                <td> 
+                                     <input type="text" name="attempt" placeholder="Attempts" class="form-control">
+                                </td>
+                            </tr>
+							
+						
+						</tbody>
+					</table>
+                                    
+                               
+                                
+							</div>
+							
+							<table class="table table-bordered" id="dev-table">
+    						               	<tbody>
+                    							<tr>
+                    								<th>Gap in Education (after 10/12/Dip)</th>
+                    								<td><div class="col-md-8 col-xs-9">
+                                                            <label class="radio-inline">
+                                                              <input type="radio" name="isgap" id="isgap" value="yes" onclick="EnableGapTextBox()"> Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                              <input type="radio" name="isgap" id="" value="no" onclick="EnableGapTextBox()"> No
+                                                            </label>
+															<input type="text" name="gapreason" placeholder="Why?" id="whygap" class="form-control" disabled>
+                                                        </div>
+                                                    </td>
+                    							</tr>
+                    							<tr>
+                    								
+                    								<th>Admission to College in Year*</th>
+                    								<td><div class="col-sm-8">
+                                                             <input type="text" name="admissionyear" placeholder="Admission Year" class="form-control">
+                                                        </div>
+                                                    </td>
+                    								
+                    							</tr>
+                    						</tbody>
+							</table>
+							
+							<div class="step33">
+								<h5><strong>Academic Information</strong></h5>
+								<hr>
+								
+								
+								
+								<table class="table">
+						<thead>
+							<tr>
+								<th>Sr.No</th>
+								<th>Semester</th>
+								<th><center>Month/YOP</center></th>
+								<th>Max Credits</th>
+								<th>Earn Credits</th>
+								<th>Earned Grade Points</th>
+								<th>SGPA(upto 2 deicmals)</th>
+								<th>No. Of BackLogs(DeadLives)</th>
+								<th>No. Of Attempts(Other than Regular)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>1st Sem
+                                </td>
+								<td> <div class="form-group">
+                                  <input type="text" class="form-control form-control-2 input-sm to" placeholder="Month/YOP">     
+                                </td>
+                                <td>
+                                 <input type="text" name="maxcredit" placeholder="Max Credit" class="form-control">
+                                </td>
+                                <td>
+                                 <input type="text" name="earncredit" placeholder="Earned Credit" class="form-control">
+                                </td>
+								<td> 
+                                 <input type="text" name="earngp" placeholder="Earned Grade Points" class="form-control">
+                                </td>
+                                <td><div class="input-group">
+                                  <input type="text" name="sgpa" class="form-control" placeholder="SGPA">
+                                  
+                                </div>
+								</div>
+                                </td>
+                                <td> <div class="form-group">
+                                        <select type="yop" placeholder="No.of BackLogs(Dead or Live)" class="form-control">
+                                          <option value="0">0</option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+										  <option value="3">3</option>
+										  <option value="4">4</option>
+                                        </select>
+                                      </div>
+                                </td>
+                                <td> 
+                                     <input type="text" name="attempt" placeholder="Attempts" class="form-control">
+                                </td>
+                            </tr>
+                            
+                            
+                            
+							<tr>
+								<td>2</td>
+								<td>2nd Sem
+                                </td>
+								<td> <div class="form-group">
+                                  <input type="text" class="form-control form-control-2 input-sm to" placeholder="Month/YOP">     
+                                </td>
+                                <td>
+                                 <input type="text" name="maxcredit" placeholder="Max Credit" class="form-control">
+                                </td>
+                                <td>
+                                 <input type="text" name="earncredit" placeholder="Earned Credit" class="form-control">
+                                </td>
+								<td> 
+                                 <input type="text" name="earngp" placeholder="Earned Grade Points" class="form-control">
+                                </td>
+                                <td><div class="input-group">
+                                  <input type="text" name="sgpa" class="form-control" placeholder="SGPA">
+                                  
+                                </div>
+								</div>
+                                </td>
+                                <td> <div class="form-group">
+                                        <select type="yop" placeholder="No.of BackLogs(Dead or Live)" class="form-control">
+                                          <option value="0">0</option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+										   <option value="3">3</option>
+										    <option value="4">4</option>
+                                        </select>
+                                      </div>
+                                </td>
+                                <td> 
+                                     <input type="text" name="attempt" placeholder="Attempts" class="form-control">
+                                </td>
+                            </tr>
+                            
+							<tr>
+								<td>3</td>
+								<td>3rd Sem
+                                </td>
+								<td> <div class="form-group">
+                                  <input type="text" class="form-control form-control-2 input-sm to" placeholder="Month/YOP">     
+                                </td>
+                                <td>
+                                 <input type="text" name="maxcredit" placeholder="Max Credit" class="form-control">
+                                </td>
+                                <td>
+                                 <input type="text" name="earncredit" placeholder="Earned Credit" class="form-control">
+                                </td>
+								<td> 
+                                 <input type="text" name="earngp" placeholder="Earned Grade Points" class="form-control">
+                                </td>
+                                <td><div class="input-group">
+                                  <input type="text" name="sgpa" class="form-control" placeholder="SGPA">
+                                  
+                                </div>
+								</div>
+                                </td>
+                                <td> <div class="form-group">
+                                        <select type="yop" placeholder="No.of BackLogs(Dead or Live)" class="form-control">
+                                          <option value="0">0</option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+										   <option value="3">3</option>
+										    <option value="4">4</option>
+                                        </select>
+                                      </div>
+                                </td>
+                                <td> 
+                                     <input type="text" name="attempt" placeholder="Attempts" class="form-control">
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr>
+								<td>4</td>
+								<td>4th Sem
+                                </td>
+								<td> <div class="form-group">
+                                  <input type="text" class="form-control form-control-2 input-sm to" placeholder="Month/YOP">     
+                                </td>
+                                <td>
+                                 <input type="text" name="maxcredit" placeholder="Max Credit" class="form-control">
+                                </td>
+                                <td>
+                                 <input type="text" name="earncredit" placeholder="Earned Credit" class="form-control">
+                                </td>
+								<td> 
+                                 <input type="text" name="earngp" placeholder="Earned Grades" class="form-control">
+                                </td>
+                                <td><div class="input-group">
+                                  <input type="text" name="sgpa" class="form-control" placeholder="SGPA">
+                                  
+                                </div>
+								</div>
+                                </td>
+                                <td> <div class="form-group">
+                                        <select type="yop" placeholder="No.of BackLogs(Dead or Live)" class="form-control">
+                                          <option value="0">0</option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+										   <option value="3">3</option>
+										    <option value="4">4</option>
+                                        </select>
+                                      </div>
+                                </td>
+                                <td> 
+                                     <input type="text" name="attempt" placeholder="Attempts" class="form-control">
+                                </td>
+                            </tr>
+                            
+                            <tr>
+								<td>5</td>
+								<td>5th Sem
+                                </td>
+								<td> <div class="form-group">
+                                  <input type="text" class="form-control form-control-2 input-sm to" placeholder="Month/YOP">     
+                                </td>
+                                <td>
+                                 <input type="text" name="maxcredit" placeholder="Max Credit" class="form-control">
+                                </td>
+                                <td>
+                                 <input type="text" name="earncredit" placeholder="Earned Credit" class="form-control">
+                                </td>
+								<td> 
+                                 <input type="text" name="earngp" placeholder="Earned Grade Points" class="form-control">
+                                </td>
+                                <td><div class="input-group">
+                                  <input type="text" name="sgpa" class="form-control" placeholder="SGPA">
+                                  
+                                </div>
+								</div>
+                                </td>
+                                <td> <div class="form-group">
+                                        <select type="yop" placeholder="No.of BackLogs(Dead or Live)" class="form-control">
+                                          <option value="0">0</option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+										   <option value="3">3</option>
+										    <option value="4">4</option>
+                                        </select>
+                                      </div>
+                                </td>
+                                <td> 
+                                     <input type="text" name="attempt" placeholder="Attempts" class="form-control">
+                                </td>
+                            </tr>
+                            
+                            <tr>
+								<td>6</td>
+								<td>6th Sem
+                                </td>
+								<td> 
+                                  <input type="text" class="form-control form-control-2 input-sm to" placeholder="Month/YOP">
+								</td>
+                                <td>
+                                 <input type="text" name="maxcredit" placeholder="Max Credit" class="form-control">
+                                </td>
+                                <td>
+                                 <input type="text" name="earncredit" placeholder="Earned Credit" class="form-control">
+                                </td>
+								<td> 
+                                 <input type="text" name="earngp" placeholder="Earned Grade Points" class="form-control">
+                                </td>
+                                <td><div class="input-group">
+                                  <input type="text" name="sgpa" class="form-control" placeholder="SGPA">
+                                  
+                                </div>
+                                </td>
+                                <td> <div class="form-group">
+                                        <select type="yop" placeholder="No.of BackLogs(Dead or Live)" class="form-control">
+                                          <option value="0">0</option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+										   <option value="3">3</option>
+										    <option value="4">4</option>
+                                        </select>
+                                      </div>
+                                </td>
+                                <td> 
+                                     <input type="text" name="attempt" placeholder="Attempts" class="form-control">
+                                </td>
+                            </tr>
+                                </tbody>
+					</table>
+							<h5><strong>Total</strong></h5>
+								<hr>
+							<div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Total Earned Credits</stong></p>
+                                </div>
+								<div class="col-md-4 col-xs-9">
+                                    <input type="text" name="totalcredit" id="totalcredit" class="dropselectsec" autocomplete="off">
+                                </div>
+							 </div>
+							 <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Total Earned Grade Points</stong></p>
+                                </div>
+								<div class="col-md-4 col-xs-9">
+                                    <input type="text" name="totalgrade" id="totalgrade" class="dropselectsec" autocomplete="off">
+                                </div>
+							 </div>
+							 <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Total SGPA</stong></p>
+                                </div>
+								<div class="col-md-4 col-xs-9">
+                                    <input type="text" name="totalsgpa" id="totalsgpa" class="dropselectsec" autocomplete="off">
+                                </div>
+							 </div>	
+								
+								
+							
+							
+							</div>
+							
+                        </div>
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="step3">
+                        <div class="step33">
+                        <h5><strong>Misclleneous Details</strong></h5>
+                        <hr>
+                            <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Are you absorbed from University course to Autonomy course</stong></p>
+                                </div>
+                                <div class="col-md-8 col-xs-9">
+                                    <label class="radio-inline">
+                                      <input type="radio" name="absorbed1" id="inlineRadio2" value="yes"> Yes
+                                    </label>
+                                    <label class="radio-inline">
+                                      <input type="radio" name="absorbed2" id="inlineRadio3" value="no"> No
+                                    </label>
+                                </div>
+                            </div>
+							 <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Have You been DC:</stong></p>
+                                </div>
+                                <div class="col-md-8 col-xs-9">
+                                    <label class="radio-inline">
+                                      <input type="radio" name="dc1" id="inlineRadio4" value="yes"> Yes
+                                    </label>
+                                    <label class="radio-inline">
+                                      <input type="radio" name="dc2" id="inlineRadio5" value="no"> No
+                                    </label>
+                                </div>
+                            </div>
+							<div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Your Future Plans</stong></p>
+                                </div>
+                                <div class="col-md-8 col-xs-9">
+                                    <label class="radio-inline">
+                                      <input type="radio" name="inlineRadioOptions" id="inlineRadio6" value="placement"> Placement Facility From College
+                                    </label>
+                                    <label class="radio-inline">
+                                      <input type="radio" name="inlineRadioOptions" id="inlineRadio7" value="Enterpreneurship"> Entrepreneurship/Family Business
+                                    </label>
+									<label class="radio-inline">
+                                      <input type="radio" name="inlineRadioOptions" id="inlineRadio8" value="higher_stduies"> Higher Studies
+                                    </label>
+									<label class="radio-inline">
+                                      <input type="radio" name="inlineRadioOptions" id="inlineRadi09" value="psu/govt"> PSU/Govt
+                                    </label>
+                                </div>
+						   </div>
+						   <div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong>Do you know any close relative working with Industry/Corporate?</stong></p>
+                                </div>
+                                <div class="col-md-8 col-xs-9">
+                                    <label class="radio-inline">
+                                      <input type="radio" name="relativeincompany" id="inlineRadio10" value="yes" onclick="EnableRelativeInCompanyTextBox()"> Yes
+                                    </label>
+                                    <label class="radio-inline">
+                                      <input type="radio" name="relativeincompany" id="inlineRadi11" value="no" onclick="EnableRelativeInCompanyTextBox()"> No
+                                    </label>
+                                </div>
+                            </div>
+							<div class="row mar_ned">
+                                <div class="col-md-4 col-xs-3">
+                                    <p align="right"><stong></stong></p>
+                                </div>
+								<div>
+									<div class="col-md-6 col-xs-9">
+                                    <input type="text" name="ifyesrelative" id="ifyesrelative" class="dropselectsec" placeholder="please give details with name." autocomplete="off" disabled>
+                                    <input type="text" name="ifyesrelative" id="ifyesrelative" class="dropselectsec" placeholder="please give details with mobile no." autocomplete="off" disabled>
+									</div>
+								</div>
+							 </div>
+
+						   
+							
+                           
+                        </div>
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                            <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="complete">
+                        <div class="step44">
+                            <h5>Documentation & Preview</h5>
+                            
+                          
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </form>
+        </div>
+    </section>
+   </div>
+</div>
+
+
+</form>
+
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+    //Initialize tooltips
+    $('.nav-tabs > li a[title]').tooltip();
+    
+    //Wizard
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+        var $target = $(e.target);
+    
+        if ($target.parent().hasClass('disabled')) {
+            return false;
+        }
+    });
+
+    $(".next-step").click(function (e) {
+
+        var $active = $('.wizard .nav-tabs li.active');
+        $active.next().removeClass('disabled');
+        nextTab($active);
+
+    });
+    $(".prev-step").click(function (e) {
+
+        var $active = $('.wizard .nav-tabs li.active');
+        prevTab($active);
+
+    });
+});
+
+function nextTab(elem) {
+    $(elem).next().find('a[data-toggle="tab"]').click();
+}
+function prevTab(elem) {
+    $(elem).prev().find('a[data-toggle="tab"]').click();
+}
+
+
+//according menu
+
+$(document).ready(function()
+{
+    //Add Inactive Class To All Accordion Headers
+    $('.accordion-header').toggleClass('inactive-header');
+	
+	//Set The Accordion Content Width
+	var contentwidth = $('.accordion-header').width();
+	$('.accordion-content').css({});
+	
+	//Open The First Accordion Section When Page Loads
+	$('.accordion-header').first().toggleClass('active-header').toggleClass('inactive-header');
+	$('.accordion-content').first().slideDown().toggleClass('open-content');
+	
+	// The Accordion Effect
+	$('.accordion-header').click(function () {
+		if($(this).is('.inactive-header')) {
+			$('.active-header').toggleClass('active-header').toggleClass('inactive-header').next().slideToggle().toggleClass('open-content');
+			$(this).toggleClass('active-header').toggleClass('inactive-header');
+			$(this).next().slideToggle().toggleClass('open-content');
+		}
+		
+		else {
+			$(this).toggleClass('active-header').toggleClass('inactive-header');
+			$(this).next().slideToggle().toggleClass('open-content');
+		}
+	});
+	
+	return false;
+});
+</script>
+<script>
+var startDate = new Date();
+var fechaFin = new Date();
+var FromEndDate = new Date();
+var ToEndDate = new Date();
+
+
+
+
+$('.from').datepicker({
+    autoclose: true,
+    minViewMode: 1,
+    format: 'mm/yyyy'
+}).on('changeDate', function(selected){
+        startDate = new Date(selected.date.valueOf());
+        startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+        $('.to').datepicker('setStartDate', startDate);
+    }); 
+
+$('.to').datepicker({
+    autoclose: true,
+    minViewMode: 1,
+    format: 'mm/yyyy'
+}).on('changeDate', function(selected){
+        FromEndDate = new Date(selected.date.valueOf());
+        FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
+        $('.from').datepicker('setEndDate', FromEndDate);
+    });
+</script>
+
+
+
+</body>
+</html>
